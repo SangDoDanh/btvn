@@ -1,0 +1,484 @@
+{
+  "categories": [
+    {
+      "category_id": 1,
+      "category_name": "Phone"
+    },
+    {
+      "category_id": 2,
+      "category_name": "Laptop"
+    },
+    {
+      "category_id": 3,
+      "category_name": "Camera"
+    },
+    {
+      "category_id": 4,
+      "category_name": "Headphones"
+    },
+    {
+      "category_id": 5,
+      "category_name": "TV"
+    },
+    {
+      "category_id": 6,
+      "category_name": "Smartwatch"
+    },
+    {
+      "category_id": 7,
+      "category_name": "Tablet"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "product_name": "Phone 1",
+      "category_id": 1,
+      "category_name": "Phone",
+      "unit_price": 199.99,
+      "status": "Available",
+      "available_since": "2023-01-01"
+    },
+    {
+      "id": 2,
+      "product_name": "Phone 2",
+      "category_id": 1,
+      "category_name": "Phone",
+      "unit_price": 299.99,
+      "status": "Available",
+      "available_since": "2023-02-01"
+    },
+    {
+      "id": 3,
+      "product_name": "Laptop 1",
+      "category_id": 2,
+      "category_name": "Laptop",
+      "unit_price": 999.99,
+      "status": "Available",
+      "available_since": "2023-03-01"
+    },
+    {
+      "id": 4,
+      "product_name": "Phone 3",
+      "category_id": 1,
+      "category_name": "Phone",
+      "unit_price": 399.99,
+      "status": "Out of stock",
+      "available_since": "2023-04-01"
+    },
+    {
+      "id": 5,
+      "product_name": "Laptop 2",
+      "category_id": 2,
+      "category_name": "Laptop",
+      "unit_price": 1499.99,
+      "status": "Available",
+      "available_since": "2023-05-01"
+    },
+    {
+      "id": 6,
+      "product_name": "Phone 4",
+      "category_id": 1,
+      "category_name": "Phone",
+      "unit_price": 499.99,
+      "status": "Available",
+      "available_since": "2023-06-01"
+    },
+    {
+      "id": 7,
+      "product_name": "Phone 5",
+      "category_id": 1,
+      "category_name": "Phone",
+      "unit_price": 599.99,
+      "status": "Available",
+      "available_since": "2023-07-01"
+    },
+    {
+      "id": 8,
+      "product_name": "Laptop 3",
+      "category_id": 2,
+      "category_name": "Laptop",
+      "unit_price": 1299.99,
+      "status": "Available",
+      "available_since": "2023-08-01"
+    },
+    {
+      "id": 9,
+      "product_name": "Phone 6",
+      "category_id": 1,
+      "category_name": "Phone",
+      "unit_price": 699.99,
+      "status": "Available",
+      "available_since": "2023-09-01"
+    },
+    {
+      "id": 10,
+      "product_name": "Laptop 4",
+      "category_id": 2,
+      "category_name": "Laptop",
+      "unit_price": 1999.99,
+      "status": "Available",
+      "available_since": "2023-10-01"
+    },
+    {
+      "id": 11,
+      "product_name": "Camera 1",
+      "category_id": 3,
+      "category_name": "Camera",
+      "unit_price": 399.99,
+      "status": "Available",
+      "available_since": "2023-11-01"
+    },
+    {
+      "id": 12,
+      "product_name": "Camera 2",
+      "category_id": 3,
+      "category_name": "Camera",
+      "unit_price": 299.99,
+      "status": "Out of stock",
+      "available_since": "2023-12-01"
+    },
+    {
+      "id": 13,
+      "product_name": "Headphones 1",
+      "category_id": 4,
+      "category_name": "Headphones",
+      "unit_price": 99.99,
+      "status": "Available",
+      "available_since": "2024-01-01"
+    },
+    {
+      "id": 14,
+      "product_name": "Camera 3",
+      "category_id": 3,
+      "category_name": "Camera",
+      "unit_price": 499.99,
+      "status": "Available",
+      "available_since": "2024-02-01"
+    },
+    {
+      "id": 15,
+      "product_name": "Headphones 2",
+      "category_id": 4,
+      "category_name": "Headphones",
+      "unit_price": 149.99,
+      "status": "Available",
+      "available_since": "2024-03-01"
+    },
+    {
+      "id": 16,
+      "product_name": "Camera 4",
+      "category_id": 3,
+      "category_name": "Camera",
+      "unit_price": 699.99,
+      "status": "Available",
+      "available_since": "2024-04-01"
+    },
+    {
+      "id": 17,
+      "product_name": "TV 1",
+      "category_id": 5,
+      "category_name": "TV",
+      "unit_price": 799.99,
+      "status": "Available",
+      "available_since": "2024-05-01"
+    },
+    {
+      "id": 18,
+      "product_name": "TV 2",
+      "category_id": 5,
+      "category_name": "TV",
+      "unit_price": 999.99,
+      "status": "Available",
+      "available_since": "2024-06-01"
+    },
+    {
+      "id": 19,
+      "product_name": "Camera 5",
+      "category_id": 3,
+      "category_name": "Camera",
+      "unit_price": 899.99,
+      "status": "Available",
+      "available_since": "2024-07-01"
+    },
+    {
+      "id": 20,
+      "product_name": "TV 3",
+      "category_id": 5,
+      "category_name": "TV",
+      "unit_price": 1499.99,
+      "status": "Available",
+      "available_since": "2024-08-01"
+    },
+    {
+      "id": 21,
+      "product_name": "Headphones 3",
+      "category_id": 4,
+      "category_name": "Headphones",
+      "unit_price": 199.99,
+      "status": "Available",
+      "available_since": "2024-09-01"
+    },
+    {
+      "id": 22,
+      "product_name": "Smartwatch 1",
+      "category_id": 6,
+      "category_name": "Smartwatch",
+      "unit_price": 299.99,
+      "status": "Available",
+      "available_since": "2024-10-01"
+    },
+    {
+      "id": 23,
+      "product_name": "TV 4",
+      "category_id": 5,
+      "category_name": "TV",
+      "unit_price": 1999.99,
+      "status": "Available",
+      "available_since": "2024-11-01"
+    },
+    {
+      "id": 24,
+      "product_name": "Smartwatch 2",
+      "category_id": 6,
+      "category_name": "Smartwatch",
+      "unit_price": 399.99,
+      "status": "Available",
+      "available_since": "2024-12-01"
+    },
+    {
+      "id": 25,
+      "product_name": "Tablet 1",
+      "category_id": 7,
+      "category_name": "Tablet",
+      "unit_price": 499.99,
+      "status": "Available",
+      "available_since": "2025-01-01"
+    },
+    {
+      "id": 26,
+      "product_name": "Smartwatch 3",
+      "category_id": 6,
+      "category_name": "Smartwatch",
+      "unit_price": 499.99,
+      "status": "Out of stock",
+      "available_since": "2025-02-01"
+    },
+    {
+      "id": 27,
+      "product_name": "Tablet 2",
+      "category_id": 7,
+      "category_name": "Tablet",
+      "unit_price": 599.99,
+      "status": "Available",
+      "available_since": "2025-03-01"
+    },
+    {
+      "id": 28,
+      "product_name": "Headphones 4",
+      "category_id": 4,
+      "category_name": "Headphones",
+      "unit_price": 249.99,
+      "status": "Available",
+      "available_since": "2025-04-01"
+    },
+    {
+      "id": 29,
+      "product_name": "Tablet 3",
+      "category_id": 7,
+      "category_name": "Tablet",
+      "unit_price": 699.99,
+      "status": "Available",
+      "available_since": "2025-05-01"
+    },
+    {
+      "id": 30,
+      "product_name": "Smartwatch 4",
+      "category_id": 6,
+      "category_name": "Smartwatch",
+      "unit_price": 599.99,
+      "status": "Available",
+      "available_since": "2025-06-01"
+    },
+    {
+      "id": 31,
+      "product_name": "Headphones 5",
+      "category_id": 4,
+      "category_name": "Headphones",
+      "unit_price": 299.99,
+      "status": "Available",
+      "available_since": "2025-07-01"
+    },
+    {
+      "id": 32,
+      "product_name": "Tablet 4",
+      "category_id": 7,
+      "category_name": "Tablet",
+      "unit_price": 799.99,
+      "status": "Available",
+      "available_since": "2025-08-01"
+    },
+    {
+      "id": 33,
+      "product_name": "Smartwatch 5",
+      "category_id": 6,
+      "category_name": "Smartwatch",
+      "unit_price": 699.99,
+      "status": "Available",
+      "available_since": "2025-09-01"
+    },
+    {
+      "id": 34,
+      "product_name": "Tablet 5",
+      "category_id": 7,
+      "category_name": "Tablet",
+      "unit_price": 899.99,
+      "status": "Available",
+      "available_since": "2025-10-01"
+    },
+    {
+      "id": 35,
+      "product_name": "TV 5",
+      "category_id": 5,
+      "category_name": "TV",
+      "unit_price": 2499.99,
+      "status": "Available",
+      "available_since": "2025-11-01"
+    },
+    {
+      "id": 36,
+      "product_name": "Camera 6",
+      "category_id": 3,
+      "category_name": "Camera",
+      "unit_price": 999.99,
+      "status": "Available",
+      "available_since": "2025-12-01"
+    },
+    {
+      "id": 37,
+      "product_name": "Speaker 1",
+      "category_id": 8,
+      "category_name": "Speaker",
+      "unit_price": 149.99,
+      "status": "Available",
+      "available_since": "2026-01-01"
+    },
+    {
+      "id": 38,
+      "product_name": "Speaker 2",
+      "category_id": 8,
+      "category_name": "Speaker",
+      "unit_price": 199.99,
+      "status": "Out of stock",
+      "available_since": "2026-02-01"
+    },
+    {
+      "id": 39,
+      "product_name": "Headphones 6",
+      "category_id": 4,
+      "category_name": "Headphones",
+      "unit_price": 179.99,
+      "status": "Available",
+      "available_since": "2026-03-01"
+    },
+    {
+      "id": 40,
+      "product_name": "Speaker 3",
+      "category_id": 8,
+      "category_name": "Speaker",
+      "unit_price": 249.99,
+      "status": "Available",
+      "available_since": "2026-04-01"
+    },
+    {
+      "id": 41,
+      "product_name": "TV 6",
+      "category_id": 5,
+      "category_name": "TV",
+      "unit_price": 3499.99,
+      "status": "Available",
+      "available_since": "2026-05-01"
+    },
+    {
+      "id": 42,
+      "product_name": "Camera 7",
+      "category_id": 3,
+      "category_name": "Camera",
+      "unit_price": 1199.99,
+      "status": "Available",
+      "available_since": "2026-06-01"
+    },
+    {
+      "id": 43,
+      "product_name": "Speaker 4",
+      "category_id": 8,
+      "category_name": "Speaker",
+      "unit_price": 299.99,
+      "status": "Available",
+      "available_since": "2026-07-01"
+    },
+    {
+      "id": 44,
+      "product_name": "Smartwatch 6",
+      "category_id": 6,
+      "category_name": "Smartwatch",
+      "unit_price": 799.99,
+      "status": "Available",
+      "available_since": "2026-08-01"
+    },
+    {
+      "id": 45,
+      "product_name": "Tablet 6",
+      "category_id": 7,
+      "category_name": "Tablet",
+      "unit_price": 999.99,
+      "status": "Available",
+      "available_since": "2026-09-01"
+    },
+    {
+      "id": 46,
+      "product_name": "Speaker 5",
+      "category_id": 8,
+      "category_name": "Speaker",
+      "unit_price": 349.99,
+      "status": "Available",
+      "available_since": "2026-10-01"
+    },
+    {
+      "id": 47,
+      "product_name": "Camera 8",
+      "category_id": 3,
+      "category_name": "Camera",
+      "unit_price": 1399.99,
+      "status": "Available",
+      "available_since": "2026-11-01"
+    },
+    {
+      "id": 48,
+      "product_name": "Speaker 6",
+      "category_id": 8,
+      "category_name": "Speaker",
+      "unit_price": 399.99,
+      "status": "Available",
+      "available_since": "2026-12-01"
+    },
+    {
+      "id": 49,
+      "product_name": "Tablet 7",
+      "category_id": 7,
+      "category_name": "Tablet",
+      "unit_price": 1099.99,
+      "status": "Available",
+      "available_since": "2027-01-01"
+    },
+    {
+      "id": 50,
+      "product_name": "Smartwatch 7",
+      "category_id": 6,
+      "category_name": "Smartwatch",
+      "unit_price": 899.99,
+      "status": "Available",
+      "available_since": "2027-02-01"
+    }
+  ]
+}

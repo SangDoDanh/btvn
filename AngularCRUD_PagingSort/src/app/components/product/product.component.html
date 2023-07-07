@@ -45,12 +45,13 @@
       <table class="table table-striped table-hover">
         <thead>
           <tr class="table-dark">
-            <th>Product Name ▲▽</th>
-            <th>Category ID ▲▽</th>
-            <th>Category Name ▲▽</th>
-            <th>Unit Price ▲▽</th>
-            <th>Status ▲▽</th>
-            <th>Available Since ▲▽</th>
+            <th (click)="sort(ordProductname)">Product Name ▲▽</th>
+            <th  (click)="sort(ordCategoryId)">Category ID ▲▽</th>
+            <th  (click)="sort(ordCategoryName)">Category Name ▲▽</th>
+            <th  (click)="sort(ordUnitPrice)">Unit Price ▲▽</th>
+            <th  (click)="sort(ordStatus)">Status ▲▽</th>
+            <th  (click)="sort(ordAvaiable)">Available Since ▲▽</th>
+            <th  (click)="sort(ordProductname)">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -64,6 +65,10 @@
             <td>{{ p.unit_price }}</td>
             <td>{{ p.status }}</td>
             <td>{{ p.available_since }}</td>
+            <td class="d-flex justify-content-evenly">
+              <button (click)="onBtnDelete(p)" class="btn btn-sm btn-danger">Delete</button>
+              <button class="btn btn-sm btn-warning">Edit</button>
+            </td>
           </tr>
         </tbody>
       </table>

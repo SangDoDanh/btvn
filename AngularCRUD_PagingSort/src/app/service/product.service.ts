@@ -20,6 +20,20 @@ export class ProductService {
     return this.httpClient.get<Product[]>(URL_API_PRODUCTS);
   }
 
+
+  deleteProductBiId(id: number): Observable<any> {
+    return this.httpClient.delete<any>(`${URL_API_PRODUCTS}/${id}`);
+  }
+
+  updateProduct(product: Product): Observable<Product> {
+    const url = `${URL_API_PRODUCTS}/${product.id}`;
+    return this.httpClient.put<Product>(url, product);
+  }
+
+  createProduct(product: Product): Observable<Product> {
+    return this.httpClient.post<Product>(URL_API_PRODUCTS, product);
+  }
+
   searchProductsByFirstCharacter(firstChar: string): Observable<Product[]> {
     return this.httpClient.get<Product[]>(URL_API_PRODUCTS).pipe(
       map(products => {
@@ -65,15 +79,12 @@ export class ProductService {
     if (param.productName) {
       params = params.set('product_name_like', param.productName);
     }
-
     if (param.minPrice) {
       params = params.set('unit_price_gte', param.minPrice.toString());
     }
-
     if (param.maxPrice) {
       params = params.set('unit_price_lte', param.maxPrice);
     }
-
     if (param.minAvailableSince) {
       params = params.set('available_since_gte', param.minAvailableSince);
     }
@@ -85,14 +96,14 @@ export class ProductService {
     if (param.status) {
       params = params.set('status', param.status);
     }
-
     if (param.categoryId) {
       params = params.set('category_id', param.categoryId.toString());
     }
+    // sort by product, category, price, status, available since
     if (param.ord_name) {
       params = params.set('_sort', param.ord_name);
 
-      if (param.ord_by) {
+      if (param.ord_by) { // ASC or DESC
         params = params.set('_order', param.ord_by);
       }
     }

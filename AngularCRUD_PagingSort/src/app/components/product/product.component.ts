@@ -19,6 +19,14 @@ export class ProductComponent implements OnInit {
   statusList: Status[] = [];
 
 
+  ordProductname = 'product_name';
+  ordCategoryId = 'category_id';
+  ordCategoryName = 'category_name';
+  ordUnitPrice = 'unit_price';
+  ordStatus = 'status';
+  ordAvaiable = 'available_since';
+
+
   // paging
   p: number = 1; // Trang hiện tại, mặc định là 1
   pageSize: number = 10; // Số sản phẩm hiển thị trên mỗi trang
@@ -43,6 +51,8 @@ export class ProductComponent implements OnInit {
     });
   }
 
+  
+
   ngOnInit(): void {
 
     this.productService.getAllCategories().subscribe((data) => {
@@ -60,6 +70,36 @@ export class ProductComponent implements OnInit {
     });
 
     
+  }
+
+
+  sort(sortName: string) {
+    console.log(this.param);
+    this.param.ord_name = sortName;
+    this.param.ord_by = this.param.ord_by == 'asc' ? 'desc' : 'asc';
+    this.productService
+      .getProductsByFilters(this.param)
+      .subscribe((data) => {
+        this.products = data;
+        this.p = 1;
+        this.totalElements = data.length;
+        this.groupName = this.productService.getAllFirstLetter(data);
+      });
+  }
+
+  // delete product by id
+  onBtnDelete(product: Product): void {
+    let confirm = window.confirm(`Are you sure you want to delete this: \n[ product-id: ${product.id} - product-name: ${product.product_name} ]`);
+    if(confirm && product.id) { 
+      this.productService.deleteProductBiId(product.id).subscribe(data => {
+        console.log('OK');
+        this.productService.getAll().subscribe((data) => {
+          this.products = data;
+          this.totalElements = data.length;
+          this.groupName = this.productService.getAllFirstLetter(data);
+        });
+      })
+    } 
   }
 
   onSelectChange(e: any) {

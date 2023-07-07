@@ -1,4 +1,14 @@
 {
+  "status": [
+  {
+    "status_id": 1,
+    "status_name": "Available"
+  },
+  {
+    "status_id": 2,
+    "status_name": "Out of stock"
+  }
+],
   "categories": [
     {
       "category_id": 1,

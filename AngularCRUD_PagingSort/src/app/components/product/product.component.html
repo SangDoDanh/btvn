@@ -1,52 +1,43 @@
 <div class="container">
   <div class="row search-box">
-    <form action="">
+    <form action="" [formGroup]="rfSeach" (ngSubmit)="onBtnSearch()">
       <div class="form-search">
         <h2>Search Product</h2>
         <div class="search-group">
           <span for="">Search by: </span>
-          <select name="" id="">
-            <option value="">Please select ...</option>
-            <option value="">Nhom 1</option>
-            <option value="">Nhom 2</option>
+          <select name="" id="" formControlName="categoryId">
+            <option [value]="''">Please select ...</option>
+            <option *ngFor="let c of categories" [value]="c.category_id">{{c.category_name}}</option>
           </select>
-          <input type="text" placeholder="Search text" />
+          <input type="text" placeholder="Search text" formControlName="productName"/>
         </div>
         <div class="search-group">
           <span for="Search by">Price ($): between</span>
-          <input type="text" placeholder="Low" />
+          <input type="text" placeholder="Low" formControlName="minPrice"/>
           <span for="">and</span>
-          <input type="text" placeholder="Height" />
+          <input type="text" placeholder="Height" formControlName="maxPrice" />
         </div>
         <div class="search-group">
           <span>First available: from</span>
-          <input type="text w-150" /><i class="bi bi-calendar-week"></i>
+          <input type="date" formControlName="minAvailableSince" />
           <span class="ms-2">to</span>
-          <input type="text w-150" /><i class="bi bi-calendar-week"></i>
+          <input type="date" formControlName="maxAvailableSince" />
         </div>
         <div class="search-group">
           <span>Product-status: </span>
-          <select name="" id="">
-            <option value="">Please select ...</option>
-            <option value="">status 1</option>
-            <option value="">status 2</option>
+          <select name="" id="" formControlName="status">
+            <option [value]="''">Please select ...</option>
+            <option *ngFor="let s of statusList" [value]="s.status_name">{{s.status_name}}</option>
           </select>
-          <button class="btn btn-sm btn-primary me-2">GO</button>
-          <button class="btn btn-sm btn-danger">CLEAR</button>
+          <button type="submit" class="btn btn-sm btn-primary me-2">GO</button>
+          <button type="reset" class="btn btn-sm btn-danger">CLEAR</button>
         </div>
       </div>
     </form>
   </div>
   <div class="row first-letter">
     <div class="filter-letter">
-      <span>A</span>
-      <span>B</span>
-      <span>C</span>
-      <span>D</span>
-      <span>E</span>
-      <span>F</span>
-      <span>G</span>
-      <span>H</span>
+      <span (click)="searchProductsByFirstCharacter(w, $event)"  *ngFor="let w of groupName">{{w | uppercase}}</span>
     </div>
   </div>
   <div class="row search-list">
@@ -63,7 +54,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let p of products | paginate : config">
+          <tr *ngFor="let p of products | paginate : {
+            itemsPerPage: this.pageSize,
+            currentPage: this.p,
+          }">
             <td>{{ p.product_name }}</td>
             <td>{{ p.category_id }}</td>
             <td>{{ p.category_name }}</td>
@@ -81,18 +75,20 @@
         <div class="page-detail">
           <span>1</span>
           <span>-</span>
-          <span>10</span>
+          <span>{{pageSize}}</span>
           <span class="mx-2">OF</span>
-          <span>50</span>
+          <span>{{totalElements}}</span>
         </div>
         <pagination-controls
           class="my-pagination"
           (pageChange)="p = $event"
+          [previousLabel]="''"
+          [nextLabel]="''"
         ></pagination-controls>
       </div>
       <div class="info-page">
-        <select class="me-2" name="" id="">
-          <option value="">10</option>
+        <select (change)="onSelectChange($event)" class="me-2" name="" id="">
+          <option *ngFor="let item of itemsPerPages" [value]="item">{{item}}</option>
         </select>
         <span>Items per page</span>
       </div>

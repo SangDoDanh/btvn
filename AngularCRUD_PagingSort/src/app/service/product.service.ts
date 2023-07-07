@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Product } from '../model/product';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Status } from '../model/status';
+import { Category } from '../model/category';
+import { Param } from '../model/param';
 
-const URL_API = 'http://localhost:3000/products';
+const URL_API_PRODUCTS = 'http://localhost:3000/products';
+const URL_API_CATEGORIES = 'http://localhost:3000/categories';
+const URL_API_STATUS = 'http://localhost:3000/status';
 
 @Injectable({
   providedIn: 'root',
@@ -12,9 +17,39 @@ export class ProductService {
   constructor(private httpClient: HttpClient) {}
 
   getAll(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>(URL_API);
+    return this.httpClient.get<Product[]>(URL_API_PRODUCTS);
   }
 
+  searchProductsByFirstCharacter(firstChar: string): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(URL_API_PRODUCTS).pipe(
+      map(products => {
+        return products.filter(product => product.product_name?.toLowerCase().startsWith(firstChar.toLowerCase()));
+      })
+    );
+  }
+
+  getAllFirstLetter(products: Product[]): any[] {
+    const nameSet = new Set();
+
+    let firstLetter;
+      for(let p of products) {
+        firstLetter = p.product_name?.charAt(0);
+        if(firstLetter) {
+          nameSet.add(firstLetter.toLocaleLowerCase());
+        }
+      }
+    
+    return Array.from(nameSet);
+  }
+
+  getAllStats(): Observable<Status[]> {
+    return this.httpClient.get<Status[]>(URL_API_STATUS);
+  }
+
+  getAllCategories(): Observable<Category[]> {
+    return this.httpClient.get<Category[]>(URL_API_CATEGORIES);
+  }
+  
   getProductsByname(productName: string): Observable<Product[]> {
     let params = new HttpParams();
 
@@ -22,57 +57,45 @@ export class ProductService {
       params = params.set('product_name_like', productName);
     }
 
-    return this.httpClient.get<Product[]>(URL_API, { params });
+    return this.httpClient.get<Product[]>(URL_API_PRODUCTS, { params });
   }
 
-  getProductsByFilters(
-    productName: string,
-    minPrice: number,
-    maxPrice: number,
-    minAvailableSince: string,
-    maxAvailableSince: string,
-    status: string,
-    categoryId: number,
-    sortBy: string,
-    sortOrder: 'asc' | 'desc'
-  ): Observable<Product[]> {
+  getProductsByFilters(param: Param): Observable<Product[]> {
     let params = new HttpParams();
-
-    if (productName) {
-      params = params.set('product_name_like', productName);
+    if (param.productName) {
+      params = params.set('product_name_like', param.productName);
     }
 
-    if (minPrice) {
-      params = params.set('unit_price_gte', minPrice.toString());
+    if (param.minPrice) {
+      params = params.set('unit_price_gte', param.minPrice.toString());
     }
 
-    if (maxPrice) {
-      params = params.set('unit_price_lte', maxPrice.toString());
+    if (param.maxPrice) {
+      params = params.set('unit_price_lte', param.maxPrice);
     }
 
-    if (minAvailableSince) {
-      params = params.set('available_since_gte', minAvailableSince);
+    if (param.minAvailableSince) {
+      params = params.set('available_since_gte', param.minAvailableSince);
     }
 
-    if (maxAvailableSince) {
-      params = params.set('available_since_lte', maxAvailableSince);
+    if (param.maxAvailableSince) {
+      params = params.set('available_since_lte', param.maxAvailableSince);
     }
 
-    if (status) {
-      params = params.set('status', status);
+    if (param.status) {
+      params = params.set('status', param.status);
     }
 
-    if (categoryId) {
-      params = params.set('category_id', categoryId.toString());
+    if (param.categoryId) {
+      params = params.set('category_id', param.categoryId.toString());
     }
-    if (sortBy) {
-      params = params.set('_sort', sortBy);
-    }
+    if (param.ord_name) {
+      params = params.set('_sort', param.ord_name);
 
-    if (sortOrder) {
-      params = params.set('_order', sortOrder);
+      if (param.ord_by) {
+        params = params.set('_order', param.ord_by);
+      }
     }
-
-    return this.httpClient.get<Product[]>(URL_API, { params });
+    return this.httpClient.get<Product[]>(URL_API_PRODUCTS, { params });
   }
 }

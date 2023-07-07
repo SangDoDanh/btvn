@@ -27,6 +27,7 @@
   border: 1px solid black;
   padding: 6px 12px;
   border-radius: 2px;
+  cursor: pointer;
 }
 
 
@@ -80,4 +81,9 @@
 
 .my-pagination ::ng-deep{
   height: 26px;
+}
+
+.btn-active {
+  background-color: rgb(6, 54, 54);
+  color: white;
 }
